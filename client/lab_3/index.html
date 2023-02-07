@@ -25,11 +25,15 @@
             </div>
             <div class="right_section box">
               <h2 class="subtitle">Image Carousel</h2>
-              <div class="images grid">
-                <img src="./images/newjeans.jpeg" alt="new jeans's album cover" width="75">
-                <img src="./images/taylor_swift.jpeg" alt="Taylor Swift's album cover" width="75">
-                <img src="./images/iu.jpeg" alt="IU's album cover" width="75">
-                <img src="./images/beyonce.jpeg" alt="Beyonce's album cover" width="75">
+              <div class="carousel">
+                <button class="prev">prev</button>
+                  <div class="slides">
+                    <div class="carousel_item" visible><img src="./images/newjeans.jpeg" alt="new jeans's album cover" ></div>
+                    <div class="carousel_item" hidden><img src="./images/taylor_swift.jpeg" alt="Taylor Swift's album cover" ></div>
+                    <div class="carousel_item" hidden><img src="./images/iu.jpeg" alt="IU's album cover" ></div>
+                    <div class="carousel_item" hidden><img src="./images/beyonce.jpeg" alt="Beyonce's album cover"></div>
+                  </div>
+                <button class="next">next</button>
               </div>
               <div class="description box">
                 Those mochi images above are in different file types.
@@ -37,6 +41,7 @@
               
             </div>
           </div>
+          <script src="script.js"></script>
         </body>
         <footer class="footer">
             <p>gitHub account name: suhjiwon95 <a href="https://github.com/suhjiwon95" target="_blank">Link to my github</a> </p>
