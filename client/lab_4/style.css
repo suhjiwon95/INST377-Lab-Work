@@ -1,3 +1,215 @@
+:root {
+  --border-radius-btn: 20px; /* for button */
+  --border-radius-box: 8px; /* for box */
+  /* color */
+  --light-shade: #f4f5ed;
+  --light-accent: #c1c0c7;
+  --dark-accent: #56704d;
+  --main-brand-color: #92cb79;
+  --dark-shade: #584b4b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff;
+  font-size: 16px;
+  min-width: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  /* these are specific to different browsers */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: var(--light-shade);
+}
+
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+h2, h3 {
+  margin:0;
+  padding:0;
+  padding-bottom:1.5rem;
+}
+
+form {
+  accent-color: hsla(120, 100%, 50%, 0.482);
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  flex: 1;
+}
+
+.container {
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  flex:1;
+}
+
+.header {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+
+/*
+  This rule implies that the H1 tag lives within another HTML tag
+  It "inherits" some rules from the above
+  Those rules won't apply to an h1 that's outside a block with the class of 'header'
+*/
+
+.header h1 {
+  display: block;
+  /* this will push other blocks out of the way */
+
+  /* colors */
+  background-color: var(--dark-shade);
+  color: var(--light-shade);
+
+  /* shapes */
+  border-radius: 6px;
+  font-size: 1.5rem;
+  padding: 1.25rem;
+  margin:0; /* removing the margin on h1 tags means the header pins to the top if we move */
+
+
+  /* box-shadows are fancy */
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+}
+
+.left_section {
+  background-color: var(--light-shade);
+  flex: 0 1 auto;
+  margin: 1rem;
+  padding: 1.5rem;
+  color: var(--dark-shade);
+  text-align: center;
+  border-radius: var(--border-radius-box);
+  box-shadow: 0 0.5em 1em -0.125em var(--light-accent), 0 0 0 1px rgb(10 10 10 / 2%);
+}
+
+.right_section {
+  background-color: var(--dark-accent);
+  flex: 1 2 auto;
+  margin: 1rem;
+  align-items: center;
+  text-align: center;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  /* max-width: 450px; */
+  border-radius: var(--border-radius-box);
+  color: var(--light-shade);
+}
+
+.restaurant_list {
+  border: 1px dotted black;
+  border-radius: var(--border-radius-box);
+  color: var(--dark-shade);
+  background-color: var(--light-shade);
+  max-width: fit-content;
+  padding: 2em;
+}
+
+button {
+  border: 1.4px solid var(--dark-accent);
+  background-color: var(--light-shade);
+  color: var(--dark-accent);
+  padding: 1em 2.4em;
+  border-radius: var(--border-radius-btn);
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--dark-accent);
+  color: var(--light-shade);
+}
+/*
+  This block is actually dependent on the "container" block having a flex set on it
+  and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
+  That serves to cram the footer to the bottom of the page.
+*/
+
+.footer {
+  flex-shrink: 0;
+  padding: 1rem;
+  background-color: var(--dark-shade);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--light-shade);
+  border-radius: var(--border-radius-box);
+}
+
+.footer a {
+  color: var(--light-shade);
+  text-decoration: underline;
+}
+
+/*
+  This is an example of a 'pseudoclass'
+  In this instance, it says what to do if a mouse hovers over a link
+  This is pretty desktop-specific, since there's no hover function on touchscreens
+*/
+.footer a:hover {
+  /* Hue, saturation, luminosity, alpha */
+  background-color: hsla(0, 0%, 90%, 0.15);
+  /* red, green, blue, alpha */
+  color: rgb(246, 169, 93);
+  text-decoration: none;
+}
+
+.subtitle {
+  color: rgba(0, 0, 0, 0.8);
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+
+/* Deploy this with images as direct "children" and the images should pop into shape */
+.grid {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+  width: 350px;
+  height: 350px;
+  margin: 0 auto;
+}
+
+.grid img {
+  width: 150px;
+  height: 150px;
+}
+
+
+
 /*
 Form Styles
 */
@@ -13,6 +225,9 @@ form input {
     margin-bottom: 1rem;
     height: 2rem;
     border-radius: 4px;
+
+    border: none;
+    border-radius: var(--border-radius-btn);
   }
 
   form label {
@@ -32,6 +247,26 @@ form input {
     /* Rules in here will only apply when a screen is the correct size */
     /* check it out by using your developer tools to shrink your screen-size */
     .container {
-      background-color: rgba(204, 8, 162, 0.65);
+      background-color: var(--light-shade);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2em;
+    }
+
+    .left_section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .right_section {
+      width: 100%;
+    }
+
+    button {
+      align-self: center;
     }
 }
