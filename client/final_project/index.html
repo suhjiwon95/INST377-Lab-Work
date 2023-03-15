@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sunset</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            Showing today's sunset and sunrise time! (Daylight saving doesn't apply)
+        </div>
+
+        <div class="Date">
+            <p>Date:</p>
+            <h1 id="date"></h1>
+        </div>
+
+        <div class="location">
+            <p>
+                Your location is <span id="latitude">0.00</span>° latitude by
+                <span id="longitude">0.00</span>° longitude.
+            </p>
+            <button id="get-location">Get My Location</button>    
+        </div>
+
+        <div class="sunset">
+            <p>sunset:</p>
+            <h1 id="sunset"></h1>
+        </div>
+
+        <div class="sunrise">
+            <p>sunrise:</p>
+            <h1 id="sunrise"></h1>
+        </div>
+
+       <div class="button">
+        <button class="button" id="button">click me</button>
+       </div>
+    </div>
+   
+    <footer>
+        <div>
+            <p>Powered by
+                <a href="https://sunrisesunset.io/">sunrisesunset.io</a>
+            </p>
+        </div>
+    </footer>
+    
+    
+    
+    <script src="./script.js"></script>
+    
+</body>
+
+</html>
