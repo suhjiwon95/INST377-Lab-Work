@@ -40,7 +40,7 @@ function filterList(list, query) {
 
 function cutRestaurantList(list) {
   console.log('fired cut list');
-  const range = [...Array(15).keys()]; //[] - array, ...[] = makes a new array of this existing array. In this case, the array has 15 elements
+  const range = [...Array(15).keys()]; //[] - array, ...Array = makes a new array of this existing array. In this case, the array has 15 elements
   return newArray = range.map((item) => {
     const index = getRandomIntInclusive(0, list.length - 1);
     return list[index];
