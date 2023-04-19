@@ -156,6 +156,11 @@
     background-color: var(--dark-accent);
     color: var(--light-shade);
   }
+
+  .hidden {
+    display: none;
+  }
+  
   /*
     This block is actually dependent on the "container" block having a flex set on it
     and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
