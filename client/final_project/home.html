@@ -8,7 +8,38 @@
     <title>Sunset</title>
 </head>
 <body>
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <li><a href="./home.html">home</a></li>
+                <li><a href="./about.html">about</a></li>
+            </ul>
+        </div>
+
+        <main>
+            <h1>SunriseSunset</h1>
+            <div class="search_bar_box">
+                <form 
+                    action="https://api.sunrisesunset.io/json?lat=${lat}&lng=${lng}&timezone=${timezone}&date=today"
+                    class="main_form">
+                    
+                    <div class="search_bar">
+                        <label for="location">Enter your location</label>
+                        <input type="text" id="location" name="location" placeholder="Enter your location">
+                    </div>
+
+                    <div class="button">
+                        <button type="button" id="load_data">Get time</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+       
+  
+    
     
     <script src="./script.js"></script>
+    
 </body>
+
 </html>

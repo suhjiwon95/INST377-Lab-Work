@@ -1,5 +1,65 @@
-.map {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
     width: 100%;
     height: 100vh;
     background-color: gainsboro;
+}
+
+/* menu section */
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    padding: 18px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* global button setting */
+.button {
+    
+}
+
+/* main section */
+
+main {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+.container_main {
+    background-color: yellow;
+    padding: 18px;
+    border-radius: 50%;
+    min-width: 600px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_main h1 {
+    font-size: 4rem;
 }
