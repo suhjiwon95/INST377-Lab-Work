@@ -5,20 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Sunset</title>
 </head>
 <body>
     <div class="container">
         <nav>
             <ul class="menu">
-                <li><a href="./home.html">home</a></li>
+                <li><a href="./index.html">home</a></li>
                 <li><a href="./about.html">about</a></li>
             </ul>
         </nav>
 
         <main>
             <div class="container_main">
-                <h1>SunriseSunset</h1>
+                <h1 class="title_home">SunriseSunset</h1>
                 <div class="search_bar_box">
                     <form 
                         action="https://api.sunrisesunset.io/json?lat=${lat}&lng=${lng}&timezone=${timezone}&date=today"
@@ -27,11 +28,14 @@
                         <div class="search_bar">
                             <label for="location"></label>
                             <input type="text" id="location" name="location" placeholder="Enter your location">
+
+                            <div class="button">
+                                <button type="button" id="load_data"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                            
                         </div>
     
-                        <div class="button">
-                            <button type="button" id="load_data">Get time</button>
-                        </div>
+                        
                     </form>
                 </div>
             </div>
