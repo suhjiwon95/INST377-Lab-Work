@@ -141,7 +141,11 @@
   }
 
   #map {
+<<<<<<< HEAD
     /* display: none; */
+=======
+    display: none;
+>>>>>>> d72068388d951d9b9420525fa6d5bd1f9b100fd4
     width: 400px;
     height: 380px;
     border: 2px dashed rgb(99, 99, 99);
