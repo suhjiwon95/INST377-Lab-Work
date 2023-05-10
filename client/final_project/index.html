@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <script src="sketch.js"></script>
+    
     <title>Sunset</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container ">
         <nav>
             <ul class="menu">
                 <li><a href="./index.html">home</a></li>
@@ -19,27 +23,24 @@
 
         <main>
             <div class="container_main">
-                <h1 class="title_home">SunriseSunset</h1>
-                <div class="search_bar_box">
-                    <form 
-                        action="https://api.sunrisesunset.io/json?lat=${lat}&lng=${lng}&timezone=${timezone}&date=today"
-                        class="main_form">
-                        
-                        <div class="search_bar">
-                            <label for="location"></label>
-                            <input type="text" id="location" name="location" placeholder="Enter your location">
-
-                            <div class="button">
-                                <button type="button" id="load_data"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                            
-                        </div>
-    
-                        
-                    </form>
-                </div>
+                <h1 class="title" id="title">SunriseSunset</h1>
+                
+                <form 
+                    onsubmit="getTime(); return false;"
+                    class="main_form">
+                    
+                    <div class="search_bar" id="search_bar">
+                        <label for="address"></label>
+                        <input type="text" id="address" placeholder="Enter your location" required>
+                        <button type="submit" id="generate"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </form>
+                
+                <p id="sunset-time"></p>
+                
+            
             </div>
-           
+            <p id="displayAddress"></p>
         </main>
        
   

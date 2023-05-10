@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="sketch.js"></script>
+    <title>Hide Element on Submit</title>
+  </head>
+  <body>
+    <form>
+      <label for="name">Enter your name:</label>
+      <input type="text" id="name" required>
+      <button type="submit" onclick="hideElement()">Submit</button>
+    </form>
+    <p id="greeting">Hello, <span id="name-output"></span>!</p>
+    <script>
+      function hideElement() {
+  const element = document.getElementById('greeting');
+  element.style.display = 'none';
+}
+
+    </script>
+  </body>
+</html>

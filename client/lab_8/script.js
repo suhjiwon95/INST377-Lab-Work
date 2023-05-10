@@ -46,7 +46,6 @@ function getRandomIntInclusive(min, max) {
       return list[index];
     }) //map returns a new array of elements given without mutating the existing data
   }
-<<<<<<< HEAD
 
   function initMap() {
     const carto = L.map('map').setView([38.98, -76.93], 13);
@@ -76,17 +75,11 @@ function getRandomIntInclusive(min, max) {
     })
   }
 
-=======
-  
->>>>>>> d72068388d951d9b9420525fa6d5bd1f9b100fd4
   async function mainEvent() { // the async keyword means we can make API requests
     const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
     const filterButton = document.querySelector('#filter_button');
     const loadDataButton = document.querySelector('#load_data');
-<<<<<<< HEAD
     const clearDataButton = document.querySelector('#clear_data');
-=======
->>>>>>> d72068388d951d9b9420525fa6d5bd1f9b100fd4
     const generateListButton = document.querySelector('#generate_list');
     const textField = document.querySelector('#resto');
 
@@ -115,11 +108,8 @@ function getRandomIntInclusive(min, max) {
      
     });
   
-<<<<<<< HEAD
     const carto = initMap();
 
-=======
->>>>>>> d72068388d951d9b9420525fa6d5bd1f9b100fd4
     filterButton.addEventListener('click', (event) => {
       console.log('clicked FilterButton');
   
@@ -142,10 +132,7 @@ function getRandomIntInclusive(min, max) {
       currentList = cutRestaurantList(storedList);
       console.log(currentList);
       injectHTML(currentList);
-<<<<<<< HEAD
       markerPlace(currentList, carto);
-=======
->>>>>>> d72068388d951d9b9420525fa6d5bd1f9b100fd4
     });
 
     textField.addEventListener('input', (event)=> {
@@ -153,7 +140,6 @@ function getRandomIntInclusive(min, max) {
         const newList = filterList(currentList, event.target.value);
         console.log(newList);
         injectHTML(newList);
-<<<<<<< HEAD
         markerPlace(newList, carto);
     })
 
@@ -161,8 +147,6 @@ function getRandomIntInclusive(min, max) {
         console.log('clear browser log');
         localStorage.clear();
         console.log('local storage check', localStorage.getItem("storedData"));
-=======
->>>>>>> d72068388d951d9b9420525fa6d5bd1f9b100fd4
     })
   }
   
