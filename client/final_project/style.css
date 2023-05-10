@@ -88,12 +88,27 @@ nav {
 
 
 /* global button setting */
+.button {
+    text-align: center;
+    min-width: 200px;
+    margin-top: 3em;
+    
+}
+
 button {
-    border: none;
+    border: 1px var(--red-orange) solid;
     background: none;
     cursor: pointer;
+    border-radius: 50px;
     padding: 1em 2em;
-    margin-left: -6em;
+    font-weight: 300;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+button:hover {
+    background: var(--red-orange);
+    color: var(--circle-color);
 }
 
 i {
@@ -132,12 +147,16 @@ h1 {
     letter-spacing: -.2rem;
 }
 
+#slider {
+    margin-top: 2em;
+}
+
 /* End of global main section */
 
 /* home page */
 
 .title,
-#sunset-time {
+#time {
     font-size: 5.3rem;
   
 }
@@ -180,6 +199,6 @@ h1 {
     display: none;
 }
 
-#sunset-time {
+#time {
     font-weight: 300;
 }

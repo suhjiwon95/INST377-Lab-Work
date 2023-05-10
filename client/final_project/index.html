@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <!-- p5.js library -->
+    <script src="./libraries/p5.min.js"></script>
     <script src="sketch.js"></script>
     
     <title>Sunset</title>
@@ -22,25 +22,24 @@
         </nav>
 
         <main>
-            <div class="container_main">
+            <div class="container_main" id="sun">
                 <h1 class="title" id="title">SunriseSunset</h1>
-                
+                <p id="time"></p>
                 <form 
-                    onsubmit="getTime(); return false;"
                     class="main_form">
-                    
-                    <div class="search_bar" id="search_bar">
+                    <!-- <div class="search_bar" id="search_bar">
                         <label for="address"></label>
-                        <input type="text" id="address" placeholder="Enter your location" required>
-                        <button type="submit" id="generate"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
+                        <input type="text" id="address" placeholder="Enter your location" required> -->
+                        <!-- <button type="submit" id="submit"><i class="fa-solid fa-magnifying-glass"></i></button> -->
+                    <div class="button_div">
+                        <button type="button" id="submit">Get time</button>
+                    </div>    
                 </form>
                 
-                <p id="sunset-time"></p>
-                
+                <input type="range" min="0" max="255" value="127" id="slider" class="hidden"/>
             
             </div>
-            <p id="displayAddress"></p>
+            
         </main>
        
   
