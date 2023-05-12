@@ -25,7 +25,7 @@ async function mainEvent() {
                     replaceElement();
                     const currentTime = document.getElementById('time').textContent = `${sunsetTime}`;
                     
-                    // enable the hidden slider
+                    // enable the hidden 
                     showSlider.style.display = 'block';
                     
                     slider.addEventListener("input", event => {
