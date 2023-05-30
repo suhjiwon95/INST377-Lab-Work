@@ -88,34 +88,40 @@ nav {
 
 
 /* global button setting */
-.button {
+/* .button {
     text-align: center;
     min-width: 200px;
     margin-top: 3em;
     
-}
+} */
 
 button {
-    border: 1px var(--red-orange) solid;
-    background: none;
+    border: none;
+    background: transparent;
     cursor: pointer;
     border-radius: 50px;
-    padding: 1em 2em;
+    padding: 1em 1.6em;
     font-weight: 300;
-    width: 100%;
     font-size: 1.2rem;
+    margin-left: -5em;
 }
 
 button:hover {
-    background: var(--red-orange);
-    color: var(--circle-color);
+
+    color: var(--orange);
 }
 
 i {
     font-size: 1.6rem;
     -webkit-text-stroke: 2.6px var(--bg-color);
     color: var(--red-orange);
+    
 }
+
+i:hover {
+    text-shadow:3px 0 10px var(--circle-color);
+}
+
 
 /* End of global button setting */
 

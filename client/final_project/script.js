@@ -1,110 +1,74 @@
-async function mainEvent() {
-    const submitButton = document.getElementById('submit');
-    const slider = document.getElementById("slider");
-    const existingText = document.getElementById("time");
-    const showSlider = document.querySelector(".hidden");
+const address = document.getElementById('address');
+const submit = document.getElementById('submit');
+const slider = document.getElementById('slider');
 
-    // Use Geolocation API to get the current location's latitude and longitude
-    submitButton.addEventListener("click", () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const lat = position.coords.latitude;
-            const long = position.coords.longitude;
-            console.log(lat);
-            console.log(long);
-            const sunriseSunsetUrl = `https://api.sunrise-sunset.org/json?formatted=0&lat=${lat}&lng=${long}&date=today`;
-            console.log("fetching sunrise sunset API")
-            
-            fetch(sunriseSunsetUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const { sunrise, sunset } = data.results;
-                    console.log(`Sunrise: ${sunrise}, Sunset: ${sunset}`);
-                    const sunsetTime = new Date(data.results.sunset).toLocaleTimeString(); 
-                    const sunriseTime = new Date(data.results.sunrise).toLocaleTimeString(); 
-                    hideElement();
-                    replaceElement();
-                    const currentTime = document.getElementById('time').textContent = `${sunsetTime}`;
-                    
-                    // enable the hidden 
-                    showSlider.style.display = 'block';
-                    
-                    slider.addEventListener("input", event => {
-                        const value = event.target.value;
-                        // when users move the slider to the left end, displats sunrise time
-                        if (value == slider.min) {
-                            replaceSunset();
-                            text = document.getElementById('time').textContent = `${sunriseTime}`;
-                            existingText.html(text);
-                        }
-                        // when users move the slider to the right end, displays sunset time
-                        if (value == slider.max) {
-                            replaceElement();
-                            text = document.getElementById('time').textContent = `${sunsetTime}`;
-                            existingText.html(text);
-                        }
-                      });
-                    
-                })
-                .catch(error => console.error(error));
-            
-           
-        });
+async function loadData() {
+    const strAdd = address.value;
+    const formattedAdd = strAdd.replaceAll(' ', '+');
+    
+    //get location
+    const nominatimUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${formattedAdd}`
+    const response = await fetch(nominatimUrl);
+    const data = await response.json();
+    const lat = data[0].lat;
+    const lon = data[0].lon;
+    
+    //get sunrise and sunset time 
+    const sunriseSunsetUrl = `https://api.sunrise-sunset.org/json?formatted=0&lat=${lat}&lng=${lon}&date=today`;
+    const sunriseResponse = await fetch(sunriseSunsetUrl);
+    const sunriseData = await sunriseResponse.json();
+    const sunset = new Date(sunriseData.results.sunset).toLocaleTimeString(); 
+    const sunrise = new Date(sunriseData.results.sunrise).toLocaleTimeString(); 
+    
+    //hide form elements
+    hideForm();
 
+    //replace the title to "Sunrise"
+    replaceToSunrise();
+
+    //display the sunrise time
+    document.getElementById('time').textContent = `${sunrise}`;
+
+    //enable the slider
+    slider.style.display = 'block';
+
+    slider.addEventListener('input', (e) => {
+        const sliderValue = e.target.value;
+        if (sliderValue === slider.min) {
+            replaceToSunrise();
+            document.getElementById('time').textContent = `${sunrise}`;
+        } 
+        if (sliderValue === slider.max) {
+            replaceToSunset();
+            document.getElementById('time').textContent = `${sunset}`;
+        } 
+       
     })
     
-
-  
 }
-function hideElement() {
-    const hideSearchBar = document.getElementById('submit');
+
+function hideForm() {
+    const hideSearchBar = document.querySelector('form');
     hideSearchBar.style.display = 'none';
     
 }
-  
 
-function replaceElement() {
+function replaceToSunset() {
     const title = document.querySelector('h1');
     const replaceTitle = 'Sunset';
     title.textContent = replaceTitle;
 }
 
-function replaceSunset() {
+function replaceToSunrise() {
 const title = document.querySelector('h1');
 const replaceTitle = 'Sunrise';
 title.textContent = replaceTitle;
 }
 
+async function mainEvent() {
+   submit.addEventListener('click', async () => loadData());
+   
 
-
- 
-// function getTime() {
-//     const address = document.getElementById('address').value;
-//     const url = `https://api.sunrise-sunset.org/json?formatted=0&date=today&address=${address}`;
-
-//     fetch(url)
-//       .then(response => response.json())
-//       .then(data => {
-//         const sunsetTime = new Date(data.results.sunset);
-//         const sunsetTimeString = sunsetTime.toLocaleTimeString();
-//         const sunriseTime = new Date(data.results.sunrise);
-//         const sunriseTimeString = sunriseTime.toLocaleTimeString();
-//         document.getElementById('sunset-time').textContent = `${sunsetTimeString}`;
-//         document.getElementById('sunset-time').textContent = `${sunriseTimeString}`;
-//         console.log('sunset', sunsetTimeString);
-//         console.log('sunrise', sunriseTimeString);
-//       })
-//       .catch(error => {
-//         console.error('Error:', error);
-//       });
-    
-    
-//     hideElement();
-//     replaceElement();
- 
-// }
-
-
-
-
+}
 
 document.addEventListener('DOMContentLoaded', async () => mainEvent());
