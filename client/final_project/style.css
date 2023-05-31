@@ -208,3 +208,12 @@ h1 {
 #time {
     font-weight: 300;
 }
+
+.slider_box {
+    min-width: 1000px;
+    margin-top: 10em;
+}
+
+#slider {
+    width: 100%;
+}
